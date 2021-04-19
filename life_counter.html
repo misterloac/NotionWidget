@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Temps Qui Passe</title>
+	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+<style>
+body{
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	min-height: 100vh;
+	width: 100%;
+	padding:0;
+	margin:0;
+}
+.bars{
+	width:100%;
+	padding:10%;
+}
+.meter{
+	display:flex;
+	justify-content:space-between;
+	align-items: center;
+	margin-top:1rem;
+}
+.title{
+	text-align:right;
+	padding-right: 1rem;
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.progressBorder{
+	border:#969696 1px solid;
+	width:80%;
+	height:2rem;
+	border-radius:10px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	padding:2px;
+}
+progress {
+  text-align: center;
+  height: 2rem;
+  width: 100%;
+  border: none;
+ border-radius: 10px;
+  /* Set the progressbar to relative */
+  position:relative;
+}
+progress:before {
+  content: attr(data-label);
+  
+  /*Position text over the progress bar */
+  position:absolute;
+  left:0;
+  right:0;
+  color:#fff;
+  font-size: 1rem;
+  padding-top: 0.5rem;
+}
+progress::-webkit-progress-bar {
+  background-color: #969696;
+  border-radius: 10px;
+}
+progress::-webkit-progress-value {
+  background-color: #3d3d3d;
+  border-radius: 10px;
+}
+progress::-moz-progress-bar {
+  background-color: #3d3d3d;
+  border-radius: 10px;
+}
+</style>
+</head>
+<body>
+	<div class="bars">
+		<div class="meter">
+			<div class="title">Année</div>
+			<div class="progressBorder">
+				<progress value="30" max="100" data-label="30%"></progress>
+			</div>
+		</div>
+		<div class="meter">
+			<div class="title">Mois</div>
+			<div class="progressBorder">
+				<progress value="63" max="100" data-label="63%"></progress>
+			</div>
+		</div>
+		<div class="meter">
+			<div class="title">Semaine</div>
+			<div class="progressBorder">
+				<progress value="11" max="100" data-label="11%"></progress>
+			</div>
+		</div>
+		<div class="meter">
+			<div class="title">Jour</div>
+			<div class="progressBorder">
+				<progress value="72" max="100" data-label="72%"></progress>
+			</div>
+		</div>
+		<div class="meter">
+			<div class="title">Vie</div>
+			<div class="progressBorder">
+				<progress value="44" max="100" data-label="44%"></progress>
+			</div>
+		</div>
+	</div>
+
+	<script charset="utf-8">
+
+	</script>
+
+</body>
+</html>
