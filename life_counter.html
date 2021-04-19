@@ -81,41 +81,78 @@ progress::-moz-progress-bar {
 </style>
 </head>
 <body>
-	<div class="bars">
+	<div class="bars" x-data="calcPercent()">
 		<div class="meter">
 			<div class="progressBorder">
-				<progress value="30" max="100" data-label="30%"></progress>
+				<progress x-bind:value="year" max="100" x-bind:data-label="year+'%'"></progress>
 			</div>
 			<div class="title">Année</div>
 		</div>
 		<div class="meter">
 			<div class="progressBorder">
-				<progress value="63" max="100" data-label="63%"></progress>
+				<progress x-bind:value="month" max="100" x-bind:data-label="month+'%'"></progress>
 			</div>
 			<div class="title">Mois</div>
 		</div>
 		<div class="meter">
 			<div class="progressBorder">
-				<progress value="11" max="100" data-label="11%"></progress>
+				<progress x-bind:value="week" max="100" x-bind:data-label="week+'%'"></progress>
 			</div>
 			<div class="title">Semaine</div>
 		</div>
 		<div class="meter">
 			<div class="progressBorder">
-				<progress value="72" max="100" data-label="72%"></progress>
+				<progress x-bind:value="day" max="100" x-bind:data-label="day+'%'"></progress>
 			</div>
 			<div class="title">Jour</div>
 		</div>
 		<div class="meter">
 			<div class="progressBorder">
-				<progress value="44" max="100" data-label="44%"></progress>
+				<progress x-bind:value="life" max="100" x-bind:data-label="life+'%'"></progress>
 			</div>
 			<div class="title">Vie</div>
 		</div>
 	</div>
 
 	<script charset="utf-8">
+		function calcPercDates(start,end,today){
+			return Math.round(((today-start)*100)/(end-start))
+		}
+		function calcPercent(){
 
+			let today = new Date();
+
+			//Calcul du % de l'année
+			let annee = today.getFullYear()
+
+			let pYear = calcPercDates(new Date(annee,0,1),new Date(annee,11,31),today)
+
+			//Calcul du % du mois
+			let mois = today.getMonth()
+			let nbJoursMois = new Date(annee,mois+1,0).getDate()
+			let pMonth = calcPercDates(new Date(annee,mois,1),new Date(annee,mois,nbJoursMois),today)
+
+			//Calcul du % de la semaine
+			let jours = today.getDate()
+			let jweek = today.getDay()
+			let pWeek = calcPercDates(new Date(annee,mois,jours+1-jweek),new Date(annee,mois,jours+1-jweek+7),today)
+
+			//Calcul du % du jours
+			let pDay = calcPercDates(new Date(annee,mois,jours,0,1),new Date(annee,mois,jours,23,59),today)
+
+			//Calcul du % de ma vie
+			let bday = new Date(1986,4,17,20,45)
+			let dday = new Date(1986+90,4,17,20,45)
+			let pLife = calcPercDates(bday,dday,today)
+
+				return{
+					year:pYear,
+					month:pMonth,
+					week:pWeek,
+					day:pDay,
+					life:pLife
+				}
+		}
 	</script>
 
 </body>
