@@ -22,24 +22,23 @@ body{
 }
 .meter{
 	display:flex;
-	justify-content:space-between;
 	align-items: center;
 	height:20vh;
 	width:100%;
 }
 .title{
-	text-align:right;
 	padding-right: 1rem;
 	font-family:Verdana, Geneva, Tahoma, sans-serif;
-	font-size:6vh;
+	font-size:5vh;
 	color:#0e1c24;
 	text-transform: uppercase;
-	width:20%;
+	padding-left:5px;
+	font-weight: 600;
 }
 .progressBorder{
-	border:#969696 1px solid;
+	border:#969696 2px solid;
 	width:80%;
-	height:15vh;
+	height:13vh;
 	border-radius:10px;
 	display:flex;
 	justify-content:center;
@@ -48,7 +47,7 @@ body{
 }
 progress {
   text-align: center;
-  height: 15vh;
+  height: 13vh;
   width: 100%;
   border: none;
  border-radius: 10px;
@@ -63,10 +62,9 @@ progress:before {
   left:0;
   right:0;
   color:#039dfc;
-  font-weight: 600;
-  font-family: monospace;
-  font-size: 5vh;
-  padding-top:5vh;
+  font-weight: 800;
+  font-size: 6vh;
+  padding-top:4vh;
 }
 progress::-webkit-progress-bar {
   background-color: #fff;
@@ -85,34 +83,34 @@ progress::-moz-progress-bar {
 <body>
 	<div class="bars">
 		<div class="meter">
-			<div class="title">Année</div>
 			<div class="progressBorder">
 				<progress value="30" max="100" data-label="30%"></progress>
 			</div>
+			<div class="title">Année</div>
 		</div>
 		<div class="meter">
-			<div class="title">Mois</div>
 			<div class="progressBorder">
 				<progress value="63" max="100" data-label="63%"></progress>
 			</div>
+			<div class="title">Mois</div>
 		</div>
 		<div class="meter">
-			<div class="title">Semaine</div>
 			<div class="progressBorder">
 				<progress value="11" max="100" data-label="11%"></progress>
 			</div>
+			<div class="title">Semaine</div>
 		</div>
 		<div class="meter">
-			<div class="title">Jour</div>
 			<div class="progressBorder">
 				<progress value="72" max="100" data-label="72%"></progress>
 			</div>
+			<div class="title">Jour</div>
 		</div>
 		<div class="meter">
-			<div class="title">Vie</div>
 			<div class="progressBorder">
 				<progress value="44" max="100" data-label="44%"></progress>
 			</div>
+			<div class="title">Vie</div>
 		</div>
 	</div>
 
